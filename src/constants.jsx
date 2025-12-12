@@ -1,4 +1,3 @@
 export const ACTIONS = {
-    INCREMENT: 'increment',
-    DECREMENT: 'decrement'
+    ADD_TODO: 'add-todo',
 }
