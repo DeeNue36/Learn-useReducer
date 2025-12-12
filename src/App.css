@@ -11,15 +11,10 @@
   text-align: center;
 }
 
-.decrement, .increment {
-  cursor: pointer;
-  width: 2rem;
-  height: 4rem;
-  font-size: 1.5rem;
-}
-
-.count {
-  font-size: 2rem;
-  padding-inline: 1rem;
-  text-align: center;
+#todo-input {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #464646;
+  border-radius: .3125rem;
 }
