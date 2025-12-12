@@ -26,7 +26,7 @@ function App() {
       <button className="decrement" onClick={decrement}>
         –
       </button>
-      <span className="count">{count}</span>
+      <span className="count">{state.count}</span>
       <button className="increment" onClick={increment}>
         +
       </button>
