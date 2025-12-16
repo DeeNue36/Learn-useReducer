@@ -17,8 +17,14 @@ function reducer(todos, action) {
         if (todo.id === action.payload.id) {
           return {...todo, completed: !todo.completed}
         }
-        return todo
+        return todo;
       })
+
+    case ACTIONS.DELETE_TODO:
+      return todos.filter(todo => todo.id !== action.payload.id);
+
+    default:
+      return todos
   }
 }
 
