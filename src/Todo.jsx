@@ -13,7 +13,11 @@ export const Todo = ({ todo, dispatch }) => {
             >
                 Toggle
             </button>
-            <button>Delete</button>
+            <button
+                onClick={() => dispatch({ type: ACTIONS.DELETE_TODO, payload: {id: todo.id} })}
+            >
+                Delete
+            </button>
 
 
             {/* Inline Style */}
