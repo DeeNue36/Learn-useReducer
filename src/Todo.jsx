@@ -1,13 +1,18 @@
 import React from 'react'
+import { ACTIONS } from './constants'
 import './App.css'
 
-export const Todo = ({ todo }) => {
+export const Todo = ({ todo, dispatch }) => {
     return (
         <div>
             <span className={`todo-text ${todo.completed ? 'completed-true' : 'completed-false'}`}>
                 {todo.name}
             </span>
-            <button>Toggle</button>
+            <button 
+                onClick={() => dispatch({ type: ACTIONS.TOGGLE_TODO, payload: {id: todo.id} })}
+            >
+                Toggle
+            </button>
             <button>Delete</button>
 
 

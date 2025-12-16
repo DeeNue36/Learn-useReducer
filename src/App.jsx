@@ -1,5 +1,6 @@
 import { useReducer, useState } from 'react'
 import { ACTIONS } from './constants'
+import { Todo } from './Todo'
 import './App.css'
 
 
@@ -10,6 +11,14 @@ function reducer(todos, action) {
         ...todos,
         newTodo(action.payload.name),
       ]
+    
+    case ACTIONS.TOGGLE_TODO:
+      return todos.map(todo => {
+        if (todo.id === action.payload.id) {
+          return {...todo, completed: !todo.completed}
+        }
+        return todo
+      })
   }
 }
 
@@ -30,12 +39,10 @@ function handleFormSubmit(e) {
   e.preventDefault();
   dispatch({
     type: ACTIONS.ADD_TODO,
-    payload: {name},
+    payload: {name: name},
   })
   setName('');
 }
-
-console.log(todos)
 
   return (
     <div>
@@ -47,7 +54,12 @@ console.log(todos)
           id='todo-input'
         />
       </form>
-
+      
+      <div className="user-todos">
+        {todos.map(todo => {
+          return <Todo key={todo.id} todo={todo} dispatch={dispatch}/>
+        })}
+      </div>
     </div>
   )
 }
